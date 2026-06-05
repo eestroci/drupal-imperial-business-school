@@ -1,0 +1,274 @@
+ (function () {
+    tp = window["tp"] || [];
+
+    /* Checkout related */
+    /**
+     * Event properties
+     *
+     * chargeAmount - amount of purchase
+     * chargeCurrency
+     * uid
+     * email
+     * expires
+     * rid
+     * startedAt
+     * termConversionId
+     * termId
+     * promotionId
+     * token_list
+     * cookie_domain
+     * user_token
+     *
+     */
+    function onCheckoutComplete(data) {
+    }
+
+    function onCheckoutExternalEvent() {
+    }
+
+    function onCheckoutClose(event) {
+        /* Default behavior is to refresh the page on successful checkout */
+        if (event && event.state == "checkoutCompleted") {
+            location.reload();
+        }
+    }
+
+    function onCheckoutCancel() {
+    }
+
+    function onCheckoutError() {
+    }
+
+    function onCheckoutSubmitPayment() {
+    }
+
+    /* Meter callback */
+    function onMeterExpired() {
+
+    }
+
+    /* Meter callback */
+    function onMeterActive() {
+
+    }
+
+    /* Callback executed when a user must login */
+    function onLoginRequired() {
+        // this is a reference implementation only
+        // your own custom login/registration implementation would
+        // need to return the tinypass-compatible userRef inside the callback
+
+        // mysite.showLoginRegistration(function (tinypassUserRef)
+        // tp.push(["setUserRef", tinypassUserRef]); // tp.offer.startCheckout(params); // }
+        // this will prevent the tinypass error screen from displaying
+
+        return false;
+    }
+
+    //Check if user registered via Google Discover regwall
+    function isRegSuccessFormDiscoverTrue() {
+      return localStorage.getItem("regSuccessFormDiscover") === "true";
+    }
+
+    /* Callback executed after a tinypassAccounts login */
+    function onLoginSuccess(data) {
+        if (data.source && data.source === "OFFER") {
+            return;
+        }
+        if (data && data.registration && !isRegSuccessFormDiscoverTrue()) {
+            window.location.href = window.location.origin + "/registrant-onboarding";
+        }
+    }
+
+    if(isRegSuccessFormDiscoverTrue()){
+    	tp.push(['setCustomVariable', 'regSuccessFormDiscover', 'true']);
+    }
+
+    /* Callback executed after an experience executed successfully */
+    function onExperienceExecute(event) {
+    }
+
+    /* Callback executed if experience execution has been failed */
+    function onExperienceExecutionFailed(event) {
+    }
+
+    /* Callback executed if external checkout has been completed successfully */
+    function onExternalCheckoutComplete(event) {
+        /* Default behavior is to refresh the page on successful checkout */
+        location.reload();
+    }
+
+    window.addEventListener("beforeunload", function () {
+        // Store the current URL as the previous page
+        sessionStorage.setItem('previousPageBeforeReload', window.location.href);
+    });
+
+    tp.push(["setAid", 'Xi7fMnt7pu']);
+
+
+    // Helper function to read query parameters
+    function getQueryParam(param) {
+        var params = new URLSearchParams(window.location.search);
+        return params.get(param);
+    }
+
+    // Check for the "app" query parameter and see if it equals "true"
+    if (getQueryParam('app') === 'true') {
+        console.log('Composer experiences are disabled because ?app=true is present in the URL.');
+
+        // If Composer was previously initialized, you could call the reset function:
+        if (window.tp && typeof window.tp.reset === 'function') {
+            window.tp.reset();
+        }
+
+        // Exit early without including Composer integration code.
+        return;
+    }
+
+
+  	tp.push(['setApplePayMerchantId', 'merchant.uk.co.inews']);
+    tp.push(["setCxenseSiteId", "2479559964199571443"])
+    tp.push(["setEndpoint", 'https://buy.tinypass.com/api/v3']);
+    tp.push(["setUseTinypassAccounts", false ]);
+    tp.push(["setUsePianoIdUserProvider", true ]);
+
+    /* checkout related events */
+    tp.push(["addHandler", "checkoutComplete", onCheckoutComplete]);
+    tp.push(["addHandler", "checkoutClose", onCheckoutClose]);
+    tp.push(["addHandler", "checkoutCustomEvent", onCheckoutExternalEvent]);
+    tp.push(["addHandler", "checkoutCancel", onCheckoutCancel]);
+    tp.push(["addHandler", "checkoutError", onCheckoutError]);
+    tp.push(["addHandler", "checkoutSubmitPayment", onCheckoutSubmitPayment]);
+
+    /* user login events */
+    tp.push(["addHandler", "loginRequired", onLoginRequired]);
+    tp.push(["addHandler", "loginSuccess", onLoginSuccess]);
+
+    /* meter related */
+    tp.push(["addHandler", "meterExpired", onMeterExpired]);
+    tp.push(["addHandler", "meterActive", onMeterActive]);
+
+    tp.push(["addHandler", "experienceExecute", onExperienceExecute]);
+    tp.push(["addHandler", "experienceExecutionFailed", onExperienceExecutionFailed]);
+
+    /* external checkout related events */
+    tp.push(["addHandler", "externalCheckoutComplete", onExternalCheckoutComplete]);
+
+    var previousPage = sessionStorage.getItem('previousPageBeforeReload') || '';
+
+    // Push this value as a custom variable
+    tp.push(['setCustomVariable', 'previousPage', previousPage]);
+
+
+    tp.push(["init", function () {
+        tp.experience.init()
+        tp.setExcludedGAEvents({
+            meterActive: true,
+            experienceExecute: true,
+            beforeBrowserEvent: true,
+            checkoutStateChange: true,
+        });
+
+        let storedData = localStorage.getItem('newsletter_subscriptions');
+        let pendingNewsletter = []
+
+        try {
+            const raw = localStorage.getItem('pending_newsletter_subscriptions')
+            pendingNewsletter = raw ? JSON.parse(raw) : []
+        } catch (e) {
+            console.error('JSON parsing error:', e);
+            pendingNewsletter = []
+        }
+
+        let dataNewsletter_subscriptions = {};
+
+        if (storedData) {
+            try {
+                dataNewsletter_subscriptions = JSON.parse(storedData);
+            } catch (e) {
+                console.error('JSON parsing error:', e);
+            }
+        }
+
+        let newslettersArray = [];
+        if (dataNewsletter_subscriptions &&
+            dataNewsletter_subscriptions.response &&
+            dataNewsletter_subscriptions.response.lists) {
+            newslettersArray = Object.keys(dataNewsletter_subscriptions.response.lists);
+        }
+        const customVariableNewsletters = [...new Set([...newslettersArray, ...pendingNewsletter])];
+        tp.push(['setCustomVariable', 'newsletters', customVariableNewsletters]);
+
+
+        CheckSubscriptionExpiration();
+        function CheckSubscriptionExpiration()
+        {
+            var params = {
+                rid: "BROGSF3R"
+            };
+            var callback = function(response) {
+                //console.log(response)
+                if (response.access && response.access.granted && response.access.expire_date) {
+                    var expDate = response.access.expire_date;
+                    var curDate = Date.now() / 1000;
+                    var daysLeft = Math.floor((expDate - curDate) / 86400) + 1;
+                    //console.log('Your sub will expire in ', daysLeft, ' day(s)');
+                    if(daysLeft === null) return;
+                    var formData = {
+                        'uid': tp.pianoId.getUser().uid,
+                        'form_name': 'sub_expired_soon'
+                    };
+                    var array = [];
+                    array.push({
+                        "field_name": "sub_expires_in_days",
+                        "value": daysLeft
+                    });
+                    formData['custom_field_values'] = array;
+                    console.log(daysLeft)
+                    fetch('https://api.piano.io/id/api/v1/identity/userinfo?aid=Xi7fMnt7pu&access_token=' + tp.pianoId.getToken() + '&lang=en_UK', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json; charset=UTF-8'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                }
+            }
+            tp.api.callApi("/access/check", params, callback);
+        }
+
+        /* Deactivating Piao GA4 pageview */
+        tp.setGA4Config({
+            measurementId: 'G-B1HE1LBHLM',
+            eventParameters: {
+                send_page_view: false,
+            }
+        });
+
+        tp.push(["init", function(){
+            if (tp.pianoId.isUserValid()){
+                tp.pianoId.loadExtendedUser({
+                    formName: 'RegistrationFields',
+                    extendedUserLoaded: function(data) {
+                        data.custom_field_values.forEach(function(field) {
+                            if(field.field_name === "editorialemails"){
+                                tp.setCustomVariable("editorialemails", field.value);
+                            }
+                        });
+                    }
+                });
+            }
+        }]);
+
+    }]);
+
+})();
+
+
+    // do not change this section
+    // |BEGIN INCLUDE TINYPASS JS|
+    (function(src){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=src;var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})("//cdn.tinypass.com/api/tinypass.min.js");
+    // |END   INCLUDE TINYPASS JS|
+
+ 

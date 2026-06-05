@@ -1,0 +1,21 @@
+@charset "UTF-8";
+.view-tipo-de-producto  div.view-content{
+    min-height: 250px;
+    height: 50vh;
+}
+.view-tipo-de-producto div.wrapper-producto {
+    position: absolute;
+    top: 115px;
+    padding: 0 10%;
+}
+.producto-titulo div.fontawesome-icon {
+    float: left;
+    margin-right: 28px;
+    color: var(--color-principal);
+}
+
+@media (max-width: 767px) {
+  .view-tipo-de-producto div.wrapper-producto {
+      padding: 0 20px;
+    }
+}

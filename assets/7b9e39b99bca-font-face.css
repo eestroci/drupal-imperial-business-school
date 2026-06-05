@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'),
+       url('./roboto.woff2') format('woff2'), /* https://caniuse.com/woff2 */
+       url('./roboto.woff') format('woff'); /* https://caniuse.com/woff */
+}
+/* START: Add for DASBO-9363 */
+@font-face {
+    font-family: 'Roboto-Bold';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto-Bold'),
+    url('./Roboto-Bold.ttf') format('ttf'); /* https://caniuse.com/ttf */
+}
+/* END: Add for DASBO-9363 */

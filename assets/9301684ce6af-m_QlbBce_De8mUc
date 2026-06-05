@@ -1,0 +1,20 @@
+"use strict";this.default_kevlar_base=this.default_kevlar_base||{};(function(_){var window=this;
+try{
+_.Z1("QlbBce");
+var gwI=function(b,K,X){if(b.ytSysTypographyTypestackReference){b=b.ytSysTypographyTypestackReference;if(!b1n||!KkO){if(!b1n){Object.assign(X1H,ySO);for(var y=_.O(Object.entries(rSO)),r=y.next();!r.done;r=y.next()){var L=_.O(r.value);r=L.next().value;L=L.next().value;r in X1H&&(X1H[r]=L)}b1n=!0}KkO||(Object.assign(Lk9,ySO),KkO=!0)}b.endsWith("_TALL")||(b.endsWith("_DEFAULT")&&(b=b.slice(0,-8)),b+="_TALL");b=b.replace("YT_SYS_TYPOGRAPHY_TYPESTACK_REFERENCE_","");(K=K()===1?Lk9[b]:X1H[b])?(K={font:K},
+y=X!=null?X:{},X=y.maxLines===void 0?0:y.maxLines,b=y.noEllipsis===void 0?!1:y.noEllipsis,y=y.noWrap===void 0?!1:y.noWrap,X>0&&(K.overflow="hidden",K.display="block"),y?(K["white-space"]="nowrap",b||(K["text-overflow"]="ellipsis")):X>0&&(K["line-clamp"]=""+X,K["-webkit-line-clamp"]=""+X,b||(K.display="-webkit-box",K["-webkit-box-orient"]="vertical",K["text-overflow"]="ellipsis",K["white-space"]="normal")),X=K):X=void 0;return X}},rSO={DISPLAY_L_HEAVY_TALL:'700 6.4rem/9rem "YouTube Sans"',
+DISPLAY_L_TALL:'300 6.4rem/9rem "YouTube Sans"',DISPLAY_M_HEAVY_TALL:'700 4.8rem/6.6rem "YouTube Sans"',DISPLAY_M_TALL:'300 4.8rem/6.6rem "YouTube Sans"',DISPLAY_S_HEAVY_TALL:'700 3.6rem/5rem "YouTube Sans"',DISPLAY_S_TALL:'300 3.6rem/5rem "YouTube Sans"',DISPLAY_XS_HEAVY_TALL:'700 2.8rem/3.8rem "YouTube Sans"',DISPLAY_XS_TALL:'300 2.8rem/3.8rem "YouTube Sans"',HEADLINE_L_HEAVY_TALL:"900 3.6rem/5rem Roboto",HEADLINE_L_TALL:"700 3.6rem/5rem Roboto",HEADLINE_M_HEAVY_TALL:"900 2.8rem/3.8rem Roboto",
+HEADLINE_M_TALL:"700 2.8rem/3.8rem Roboto",HEADLINE_S_HEAVY_TALL:"900 2.4rem/3.2rem Roboto",HEADLINE_S_TALL:"700 2.4rem/3.2rem Roboto",HEADLINE_XS_HEAVY_TALL:"900 2rem/2.8rem Roboto",HEADLINE_XS_TALL:"700 2rem/2.8rem Roboto"};var ySO={ACTION_L_HEAVY_TALL:"700 1.6rem/2.2rem Roboto",ACTION_L_TALL:"500 1.6rem/2.2rem Roboto",ACTION_M_HEAVY_TALL:"700 1.4rem/2rem Roboto",ACTION_M_TALL:"500 1.4rem/2rem Roboto",ACTION_S_HEAVY_TALL:"700 1.2rem/1.8rem Roboto",ACTION_S_TALL:"500 1.2rem/1.8rem Roboto",ACTION_XL_HEAVY_TALL:"700 1.8rem/2.6rem Roboto",ACTION_XL_TALL:"500 1.8rem/2.6rem Roboto",ACTION_XS_HEAVY_TALL:"700 1rem/1.6rem Roboto",ACTION_XS_TALL:"500 1rem/1.6rem Roboto",BODY_L_HEAVY_TALL:"500 1.6rem/2.2rem Roboto",BODY_L_TALL:"400 1.6rem/2.2rem Roboto",
+BODY_M_HEAVY_TALL:"500 1.4rem/2rem Roboto",BODY_M_TALL:"400 1.4rem/2rem Roboto",BODY_S_HEAVY_TALL:"500 1.2rem/1.8rem Roboto",BODY_S_TALL:"400 1.2rem/1.8rem Roboto",BODY_XL_HEAVY_TALL:"500 1.8rem/2.6rem Roboto",BODY_XL_TALL:"400 1.8rem/2.6rem Roboto",BODY_XS_HEAVY_TALL:"500 1rem/1.6rem Roboto",BODY_XS_TALL:"400 1rem/1.6rem Roboto",DISPLAY_L_HEAVY_TALL:'700 5.6rem/7.8rem "YouTube Sans"',DISPLAY_L_TALL:'300 5.6rem/7.8rem "YouTube Sans"',DISPLAY_M_HEAVY_TALL:'700 4rem/5.4rem "YouTube Sans"',DISPLAY_M_TALL:'300 4rem/5.4rem "YouTube Sans"',
+DISPLAY_S_HEAVY_TALL:'700 3.2rem/4.4rem "YouTube Sans"',DISPLAY_S_TALL:'300 3.2rem/4.4rem "YouTube Sans"',DISPLAY_XS_HEAVY_TALL:'700 2.4rem/3.2rem "YouTube Sans"',DISPLAY_XS_TALL:'300 2.4rem/3.2rem "YouTube Sans"',HEADLINE_L_HEAVY_TALL:"900 3.2rem/4.4rem Roboto",HEADLINE_L_TALL:"700 3.2rem/4.4rem Roboto",HEADLINE_M_HEAVY_TALL:"900 2.4rem/3.2rem Roboto",HEADLINE_M_TALL:"700 2.4rem/3.2rem Roboto",HEADLINE_S_HEAVY_TALL:"900 2rem/2.8rem Roboto",HEADLINE_S_TALL:"700 2rem/2.8rem Roboto",HEADLINE_XS_HEAVY_TALL:"900 1.8rem/2.6rem Roboto",
+HEADLINE_XS_TALL:"700 1.8rem/2.6rem Roboto"};var X1H={},Lk9={},b1n=!1,KkO=!1;_.NKP=function(){_.g1().addProvider({provide:_.zEo,useValue:gwI})};
+_.b4();
+}catch(e){_._DumpException(e)}
+try{
+_.Z1("De8mUc");
+var Y9Z=function(b){if(b==null?0:b.ytSysColorBaselineReference)return _.sx(b.ytSysColorBaselineReference)};
+_.Ds8=function(){_.g1().addProvider({provide:_.z8v,useValue:Y9Z})};
+_.b4();
+}catch(e){_._DumpException(e)}
+}).call(this,this.default_kevlar_base);
+// Google Inc.

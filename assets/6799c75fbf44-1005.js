@@ -1,0 +1,1 @@
+!function(){var i={fbPixelId:"908072989628985",domain:".theglobeandmail.com",appId:1005,ping_activity:!0,snowplow_src:"//cdn.keywee.co/dist/sp-2.9.1.js",bt:!1,in_eu:!1};window&&window.kwa&&window.kwa("loadConfig",i)}();

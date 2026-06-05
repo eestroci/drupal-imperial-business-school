@@ -1,0 +1,30 @@
+
+function piResponse() {
+		piSetCookie('visitor_id472252', '706823386', 3650);
+			piSetCookie('visitor_id472252-hash', '7d139b05a66ca2f37cdeba9774245804a5a3c317a1dc376dcc1be55fa8b82ced8fea4a62e4d16d213518ee3375ebf10c16acffd8', 3650);
+		
+		if (document.location.protocol != "https:" || (document.location.protocol == "https:" && true)) {
+		var analytics_link = document.location.protocol + "//" + "execed-support.imperial.ac.uk/analytics?";
+		pi.tracker.visitor_id='706823386';
+
+				pi.tracker.visitor_id_sign='7d139b05a66ca2f37cdeba9774245804a5a3c317a1dc376dcc1be55fa8b82ced8fea4a62e4d16d213518ee3375ebf10c16acffd8';
+		
+				pi.tracker.campaign_id='5442';
+		
+		var variables = 'conly=true';
+		for (property in pi.tracker) {
+					variables += "&" + property + "=" + encodeURIComponent(pi.tracker[property]);
+				}
+		var headID = document.getElementsByTagName("head")[0];
+		piScriptObj[piScriptNum] = document.createElement('script');
+		piScriptObj[piScriptNum].type = 'text/javascript';
+		piScriptObj[piScriptNum].src = analytics_link + variables;
+		headID.appendChild(piScriptObj[piScriptNum]);
+		piScriptObj[piScriptNum].onload = function() { return; }
+	}
+	}
+piResponse();
+
+
+
+

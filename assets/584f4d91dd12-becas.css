@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.block-field-blocknodebecafield-presentacion-candidaturas,
+.block-field-blocknodebecafield-requisitos,
+.block-field-blocknodebecafield-plazos,
+.block-field-blocknodebecafield-proceso-seleccion,
+.block-field-blocknodebecafield-programa-formativo,
+.block-field-blocknodebecafield-objetivos-educativos,
+.block-field-blocknodebecafield-competencias,
+.block-field-blocknodebecafield-competencias-especificas,
+.block-field-blocknodebecafield-competencias-digitales,
+.block-field-blocknodebecafield-actividades{
+  margin-bottom: 40px;
+}
+
+
+.block-field-blocknodebecafield-presentacion-candidaturas div.field__label,
+.block-field-blocknodebecafield-requisitos div.field__label,
+.block-field-blocknodebecafield-plazos div.field__label,
+.block-field-blocknodebecafield-proceso-seleccion div.field__label,
+.block-field-blocknodebecafield-programa-formativo div.field__label,
+.block-field-blocknodebecafield-objetivos-educativos div.field__label,
+.block-field-blocknodebecafield-competencias div.field__label,
+.block-field-blocknodebecafield-competencias-especificas div.field__label,
+.block-field-blocknodebecafield-competencias-digitales div.field__label,
+.block-field-blocknodebecafield-actividades div.field__label{
+  font-size: 1.2em;
+}

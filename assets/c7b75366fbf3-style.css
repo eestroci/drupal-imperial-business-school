@@ -1,0 +1,53 @@
+.widget-sponsor--container *{margin:0;padding:0;list-style-type:none;text-decoration:none}
+.widget-sponsor--container{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;padding-bottom:20px;margin:0 0 24px;position:relative;background:#fdfdfd;border-top:1px #333 solid;overflow:hidden;margin-bottom:16px;font-family:inherit,sans-serif}
+.widget-sponsor--container:before{content:'';width:100%;height:1px;background-color:#909090;position:absolute;top:2px;left:0;z-index:100}
+.widget-sponsor--container article:last-child{border-top:1px solid #ccc}
+.widget-sponsor__header{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;}
+
+.widget-sponsor__payoff{padding:12px 8px;font-size:12px; line-height: 15px; font-weight:400;font-style:italic;color:#666; display: inline-flex; width: 100%; text-align:left; justify-content: space-between; align-items: center;}
+
+.widget-sponsor__tooltip {padding: 2px 0px 1px;border: 2px solid #6d7880;border-radius: 50%;margin-left: 0; background:#fff; color:#39464e;}
+.widget-sponsor__tooltip:hover {background:#f0f0f0;}
+.widget-sponsor__tooltip label {position: relative; text-align: center; font-size: 13px;text-decoration: none;font-weight: 700;font-style: normal; display: block; width: 19px; height: 15px;}
+.widget-sponsor__tooltip label:hover {cursor: pointer;}
+.widget-sponsor__tooltip span {visibility: hidden;width: 250px; top: 2.75em; right: -0.25em;background-color: #39464e;color: #fff;text-align: left;border-radius: 6px;padding: 10px;position: absolute;z-index: 9;margin-left:1em;opacity: 0;transition: opacity 1s;font-weight: normal;font-size: 12px; line-height:17px; box-shadow: 0px 0px 1px;}
+.widget-sponsor__tooltip span::after {content: "";position: absolute;top: -0.5em;right: 3%;margin-top: -8px;border-width: 7px;border-style: solid;border-color: transparent transparent #39464e transparent;}
+.widget-sponsor__tooltip input {display:none;}
+.widget-sponsor__tooltip input:checked+span {visibility: visible;opacity: 1;}
+
+.widget-sponsor__logo{display:block; padding:8px;text-align:right}
+.widget-sponsor__logo img{width:105px;max-width: fit-content;}
+.widget-sponsor__label{display:block;width:100%;position:relative;font-size:13px;line-height:13px;font-weight:500;color:#454545;padding:16px 0 12px 16px;text-transform:uppercase}
+.widget-sponsor--container a{color:#1a1a1a}
+.widget-sponsor__main-item{-webkit-box-flex:1;-ms-flex:auto;flex:auto;margin-bottom:8px;padding:16px}
+
+/* per forzare certi comportamenti in colonna dx */
+
+/*.sidebar .widget-sponsor__main-item, /* Repubblica */
+/*.ls-sidebar .widget-sponsor__main-item, /* LaStampa */
+/*.gnn-sidebar .widget-sponsor__main-item /* GNN */
+
+.widget-sponsor__main-figure{position:relative;overflow:hidden;margin-bottom:8px}
+.widget-sponsor__main-figure img{width:100%;display:block}
+.widget-sponsor__main-content{padding:0;margin-bottom:24px;margin-top:4px;}
+.widget-sponsor__main-overtitle,.widget-sponsor__main-overtitle a{font-size:13px;line-height:24px;font-weight:400;color:#495254;text-transform:uppercase}
+.widget-sponsor__main-title{font-size: 18px; line-height: 20px;margin-bottom:6px; font-weight: 700;}
+.widget-sponsor__main-author{font-size:13px;font-style:italic;display:block;color:#000;margin-bottom:6px}
+.widget-sponsor__main-content p{font-size:14px;line-height:17px; margin-bottom: 4px;}
+.widget-sponsor__main-content p b{text-transform:uppercase}
+.widget-sponsor__main-content p a {color:#444; text-decoration: underline;}
+.widget-sponsor__sub-title a{color:#606060;font-weight:400;}
+.widget-sponsor__sub-item{display:-webkit-box;display:-ms-flexbox;display:flex;margin:16px 0;border-top:1px solid #e6e6e6;padding-top:12px}
+.widget-sponsor__sub-item figure{padding-right:12px}
+.widget-sponsor__sub-item figure img{width:80px}
+.widget-sponsor__sub-cta{font-size:11px;font-family:inherit;padding:7px 14px;margin:6px 0;background:#2bbbad;border:none;border-radius:4px; text-transform: uppercase;}
+.widget-sponsor__sub-cta a{color:#fff;font-weight:400}
+
+ /* --- nascondere temp. il box Consigli solo su LaStampa e solo su mobile */
+/* @media (max-width:767px){
+  #detailPage .widget-sponsor--container {display: none; visibility: hidden;}
+} */
+  /* ---  end */
+@media (max-width:360px){
+.widget-sponsor__payoff{padding:12px 4px 12px 6px;}
+}

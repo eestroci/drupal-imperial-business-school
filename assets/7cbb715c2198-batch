@@ -1,0 +1,1 @@
+var mr = [    {    id: 1052605,    impDur: 0,    ruleId: 0,    dnr: true,    dnrReason: [            ],    analytics: [{"ruleId":1230,"impDur":20},{"ruleId":2216,"impDur":25}],    parentMawId: 0,    mawId: 1082602,    eid: "main_the_irish_times_business_financial-services_0",    eolid: 0}];

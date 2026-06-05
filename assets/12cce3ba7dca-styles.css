@@ -1,0 +1,97 @@
+.icp-list-item-heading span::after {
+  content: ".";
+}
+.icp-list-item-cta a {
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+  text-decoration: none;
+}
+.icp-list-item-cta a::after {
+  content: " \00BB";
+}
+
+/*
+    CTA STYLES
+*/
+.icp-list-cta button,
+.icp-list-cta button:visited,
+.icp-list-cta a,
+.icp-list-cta a:visited {
+  background: #ffffff;
+  border: 1px solid #cd2653;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.icp-list-cta button:hover,
+.icp-list-cta button:visited:hover,
+.icp-list-cta a:hover,
+.icp-list-cta a:visited:hover {
+  background: #d4d4d4;
+}
+.icp-list-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  z-index: 9999;
+}
+.icp-list-modal.open {
+  display: flex;
+}
+.icp-list-modal .icp-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(42, 43, 42, 0.7);
+  z-index: 1000;
+}
+.icp-list-modal .modal-wrapper {
+  position: relative;
+  max-width: 920px;
+  max-height: 90vh;
+  width: 90%;
+  background: #ffffff;
+  overflow-y: auto;
+  z-index: 1001;
+}
+.icp-list-modal .modal-wrapper > .modal-close {
+  position: absolute;
+  top: 0.125rem;
+  right: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.icp-list-modal .modal-wrapper > .modal-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.icp-list-modal .modal-wrapper > .modal-content > * {
+  width: 100%;
+  padding: 2.5rem 2rem;
+}
+.icp-list-modal .content-left {
+  background-color: var(--icp-cta-modal-left-background, #fff);
+  color: var(--icp-cta-modal-content-color, #000);
+}
+.icp-list-modal .content-left h3 {
+  color: var(--icp-cta-modal-heading-color, #000);
+}
+.icp-list-modal .content-right {
+  background-color: var(--icp-cta-modal-right-background, #fff);
+}
+@media screen and (min-width: 768px) {
+  .icp-list-modal .modal-wrapper > .modal-content {
+      flex-direction: row;
+      flex-wrap: nowrap;
+  }
+}

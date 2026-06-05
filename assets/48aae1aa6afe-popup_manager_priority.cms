@@ -1,0 +1,16 @@
+
+	  
+        window.Times = window.Times || {};
+        
+    	
+    	try{
+            // *********************************************
+            // ************ popupManager Config **************
+            // ********************************************* 
+     	    
+     	        window.toi_client_side_settings= {"popupManager":{"priority":[{"name":"grx_notification","repeat":false,"priority":5},{"name":"google_one_tap","repeat":false,"priority":1},{"name":"truecaller","priority":3},{"name":"bottomsheet","priority":4,"repeat":false},{"name":"abound_signup_loggedin","priority":2}],"burninterval":1,"burntime":240,"popupTimeout":2000,"forceTimeout":1000,"normalTimeout":8000}};
+     	        window.toi_client_side_settings = window.toi_client_side_settings.popupManager;
+     	    
+    	} catch(e) {}
+
+	

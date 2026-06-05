@@ -1,0 +1,8 @@
+jsonp1403({
+  "error" : "access_denied",
+  "site_cookie_domain" : ".spectator.com",
+  "email_confirmation_required" : null,
+  "extend_expired_access_enabled" : false,
+  "authorized_by_sso" : false,
+  "global_mode" : true
+})

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.lista-logos-view .views-view-grid .row>div  {
+  margin: 15px 0;
+}
+
+.lista-logos-view .views-view-grid .apoyo a
+ {
+  display: block;
+  text-align: center;
+}
+
+
+.lista-logos-view ul.pager {
+  text-align: center;
+}
+
+.lista-logos-view .pager a.button {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-16)/19px var(--unnamed-font-family-roboto);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--color-principal);
+  text-align: center;
+  background: var(--blanco) 0% 0% no-repeat padding-box;
+  border: 1px solid var(--color-principal);
+  height: 43px;
+  display: inline-block;
+  position: relative;
+  padding: 10px 15px;
+}
+
+.item-guia {
+  margin-bottom: 20px;
+}

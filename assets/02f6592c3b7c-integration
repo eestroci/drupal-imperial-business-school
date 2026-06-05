@@ -1,0 +1,44 @@
+var snippet = '<!-- \nStart of global snippet: Please do not remove\nPlace this snippet between the <head> and <\/head> tags on every page of your site.\n-->\n<!-- Google tag (gtag.js) -->\n<script async src=\"https:\/\/www.googletagmanager.com\/gtag\/js?id=DC-15901056\"><\/script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag(\'js\', new Date());\n\n  gtag(\'config\', \'DC-15901056\');\n<\/script>\n<!-- End of global snippet: Please do not remove -->\n<!--\nEvent snippet for P&Q Script Piggy on : Please do not remove.\nPlace this snippet on pages with events you\u00E2\u20AC\u2122re tracking. \nCreation date: 10\/22\/2025\n-->\n<script>\n  gtag(\'event\', \'conversion\', {\n    \'allow_custom_scripts\': true,\n    \'send_to\': \'DC-15901056\/invmedia\/pqscr0+standard\'\n  });\n<\/script>\n<noscript>\n<img src=\"https:\/\/ad.doubleclick.net\/ddm\/activity\/src=15901056;type=invmedia;cat=pqscr0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=1;gdpr_consent=;ord=1?\" width=\"1\" height=\"1\" alt=\"\"\/>\n<\/noscript>\n<!-- End of event snippet: Please do not remove -->';
+(function(html, target) {
+    target = target || document.body;
+
+    var tpl = document.createElement('div');
+    tpl.innerHTML = html;
+
+    var frag = document.createDocumentFragment();
+
+    function handleNode(node, parent) {
+        if (node.nodeName.toLowerCase() === 'script') {
+            var s = document.createElement('script');
+
+            var attrs = node.attributes;
+            for (var i = 0; i < attrs.length; i++) {
+                s.setAttribute(attrs[i].name, attrs[i].value);
+            }
+
+            if (node.src) {
+                s.src = node.src;
+            } else {
+                s.text = node.text || node.textContent || '';
+            }
+
+            parent.appendChild(s);
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            var clone = node.cloneNode(false);
+            parent.appendChild(clone);
+
+            for (var child = node.firstChild; child; child = child.nextSibling) {
+                handleNode(child, clone);
+            }
+        } else {
+            parent.appendChild(node.cloneNode(true));
+        }
+    }
+
+    var children = tpl.childNodes;
+    for (var i = 0; i < children.length; i++) {
+        handleNode(children[i], frag);
+    }
+
+    target.appendChild(frag);
+})(snippet, document.body);

@@ -1,0 +1,356 @@
+/**
+ * Injects the Alchemer script.
+ *
+ * @returns {void}
+ */
+function addAlchemerScript() {
+	// Load script from Alchemer SDK.
+	(function initApptentiveSDK() {
+		var ApptentiveSDK = (window.ApptentiveSDK = window.ApptentiveSDK || []);
+		if (!ApptentiveSDK.version) {
+			if (!ApptentiveSDK.loaded) {
+				ApptentiveSDK.loaded = true;
+				ApptentiveSDK.methods = [
+					'buildDevice',
+					'createConversation',
+					'createMessage',
+					'engage',
+					'getSegments',
+					'identifyPerson',
+					'setOption',
+					'setPageName',
+					'showInteraction',
+					'showMessageCenter',
+					'updatePerson'
+				];
+				ApptentiveSDK.factory = function factory(t) {
+					return function f() {
+						for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+							args[_key] = arguments[_key];
+						}
+						var e = Array.prototype.slice.call(args);
+						e.unshift(t);
+						ApptentiveSDK.push(e);
+						return ApptentiveSDK;
+					};
+				};
+				for (var i = 0; i < ApptentiveSDK.methods.length; i++) {
+					var method = ApptentiveSDK.methods[i];
+					ApptentiveSDK[method] = ApptentiveSDK.factory(method);
+				}
+				ApptentiveSDK.LOADER_VERSION = '1.0.0';
+			}
+		}
+	})();
+
+	// Inject the script containing our Project ID.
+	const s = document.createElement('script');
+	s.async = true;
+	s.src = 'https://sdk.apptentive.com/v1/apps/6894eb771a074e14d6611978/websdk';
+	document.head.appendChild(s);
+
+	// Hook into Google Analytics page_view event. This loads before the consent check completes.
+	const pageType = window.iNews?.GA4?.customDimensions?.page_type || window.customDimensions?.page_type;
+	const ApptentiveSDK = (window.ApptentiveSDK = window.ApptentiveSDK || []);
+
+	if (pageType === 'home') {
+		ApptentiveSDK?.engage('homepage_view');
+	}
+
+	if (pageType === 'article') {
+		ApptentiveSDK?.engage('article_view');
+	}
+}
+
+/**
+ * Checks for user consent via TCF or USP APIs and loads the Alchemer script if
+ * consent is present.
+ *
+ * Uses vendor ID 28 for Alchemer (TCF) and global consent for USP API.
+ *
+ * @returns {void}
+ */
+function alchemerConsentHandler() {
+	const nrvVendorId = 28;
+
+	if (window.__tcfapi) {
+		window.__tcfapi('getValidTCData', 2, () => {
+			window.__tcfapi('getNonRegisteredVendorsConsents', 2, (nrvList) => {
+				if (nrvList && nrvList?.[nrvVendorId]?.consent) {
+					addAlchemerScript();
+				}
+			});
+		});
+	} else if (window.__uspapi) {
+		// US Yes/No check.
+		window.__uspapi('getUSPData', 1, () => {
+			window.__uspapi.a.push([
+				'hasConsentedToAll',
+				null,
+				(hasConsent) => {
+					if (hasConsent) addAlchemerScript();
+				}
+			]);
+		});
+	}
+}
+
+// If the adverts queue is available, push the Alchemer consent handler to it.
+// Otherwise, set a timeout to call the handler after a second.
+if (window?.adverts?.queue?.push) {
+	window.adverts.queue.push(alchemerConsentHandler);
+} else {
+	// No ads on page, assume everything will have loaded by now.
+	setTimeout(alchemerConsentHandler, 1000);
+}
+;
+/**
+ * Injects the Facebook script.
+ *
+ * @returns {void}
+ */
+function addFacebookScript() {
+	!(function (f, b, e, v, n, t, s) {
+		if (f.fbq) return;
+		n = f.fbq = function () {
+			n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+		};
+		if (!f._fbq) f._fbq = n;
+		n.push = n;
+		n.loaded = !0;
+		n.version = '2.0';
+		n.queue = [];
+		t = b.createElement(e);
+		t.async = !0;
+		t.src = v;
+		s = b.getElementsByTagName(e)[0];
+		s.parentNode.insertBefore(t, s);
+	})(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+	fbq('init', '144852230851673');
+	fbq('track', 'PageView');
+}
+
+/**
+ * Checks for user consent via TCF or USP APIs and loads the Facebook script if
+ * consent is present.
+ *
+ * @returns {void}
+ */
+function facebookConsentHandler() {
+	const facebookVendorId = 89;
+
+	if (window.__tcfapi) {
+		window.__tcfapi('getTCData', 2, (tcData, success) => {
+			var fbConsent = false;
+			if (tcData && tcData.addtlConsent) {
+				var ids = tcData.addtlConsent
+					.substring(2)
+					.split('.')
+					.map(function (id) {
+						return parseInt(id);
+					});
+				fbConsent = ids.includes(facebookVendorId);
+			}
+			if (success && fbConsent) addFacebookScript();
+		});
+	} else if (window.__uspapi) {
+		// US Yes/No check.
+		window.__uspapi('getUSPData', 1, () => {
+			window.__uspapi.a.push([
+				'hasConsentedToAll',
+				null,
+				(hasConsent) => {
+					if (hasConsent) addFacebookScript();
+				}
+			]);
+		});
+	}
+}
+
+// If the adverts queue is available, push the Facebook consent handler to it.
+// Otherwise, set a timeout to call the handler after a second.
+if (window?.adverts?.queue?.push) {
+	window.adverts.queue.push(facebookConsentHandler);
+} else {
+	// No ads on page, assume everything will have loaded by now.
+	setTimeout(facebookConsentHandler, 1000);
+}
+;
+/**
+ * Injects the Bing tracking script.
+ *
+ * @returns {void}
+ */
+function initBingScript() {
+	(function (w, d, t, r, u) {
+		let f;
+		let n;
+		let i;
+		(w[u] = w[u] || []),
+			(f = function () {
+				const o = {
+					ti: '56378606'
+				};
+				(o.q = w[u]), (w[u] = new UET(o)), w[u].push('pageLoad');
+			}),
+			(n = d.createElement(t)),
+			(n.src = r),
+			(n.async = 1),
+			(n.onload = n.onreadystatechange =
+				function () {
+					const s = this.readyState;
+					(s && s !== 'loaded' && s !== 'complete') || (f(), (n.onload = n.onreadystatechange = null));
+				}),
+			(i = d.getElementsByTagName(t)[0]),
+			i.parentNode.insertBefore(n, i);
+	})(window, document, 'script', '//bat.bing.com/bat.js', 'uetq');
+}
+
+/**
+ * Adds tracking events to bing.
+ *
+ * @returns {void}
+ */
+function initBingTracking() {
+	initBingScript();
+
+	window.uetq = window.uetq || [];
+	window.uetq.push('consent', 'update', {ad_storage: 'granted'});
+
+	// if document.referrer contains 'bing.com' then track page view
+	if (document.referrer?.includes('bing.com')) {
+		window.uetq.push('event', 'pageView', {
+			event_label: 'pageView'
+		});
+	}
+}
+
+/**
+ * Checks for user consent via TCF or USP APIs and loads the script if consent is present.
+ *
+ * Uses gvl ID 1126 for Bing and global consent for USP API.
+ *
+ * @returns {void}
+ */
+function bingConsentHandler() {
+	const iabVendorID = 1126;
+
+	if (window.__tcfapi) {
+		window.__tcfapi('getValidTCData', 2, () => {
+			window.__tcfapi('consentedVendors', 2, (tcData) => {
+				if (tcData.includes(iabVendorID)) initBingTracking();
+			});
+		});
+	} else if (window.__uspapi) {
+		// US Yes/No check.
+		window.__uspapi('getUSPData', 1, () => {
+			window.__uspapi.a.push([
+				'hasConsentedToAll',
+				null,
+				(hasConsent) => {
+					if (hasConsent) initBingTracking();
+				}
+			]);
+		});
+	}
+}
+
+// If the adverts queue is available, push the Bing consent handler to it.
+// Otherwise, set a timeout to call the handler after a second.
+if (window?.adverts?.queue?.push) {
+	window.adverts.queue.push(bingConsentHandler);
+} else {
+	// No ads on page, assume everything will have loaded by now.
+	setTimeout(bingConsentHandler, 1000);
+}
+;
+/**
+ * Injects the Reddit Pixel script.
+ *
+ * @returns {void}
+ */
+function addRedditScript() {
+	!(function (w, d) {
+		if (!w.rdt) {
+			var p = (w.rdt = function () {
+				p.sendEvent ? p.sendEvent.apply(p, arguments) : p.callQueue.push(arguments);
+			});
+			p.callQueue = [];
+			var t = d.createElement('script');
+			(t.src = 'https://www.redditstatic.com/ads/pixel.js'), (t.async = !0);
+			var s = d.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(t, s);
+		}
+	})(window, document);
+
+	// Store Reddit click id (rdt_cid).
+	(function () {
+		const p = new URLSearchParams(location.search);
+		const cid = p.get('rdt_cid');
+		if (!cid) return;
+		const ms_per_day = 24 * 60 * 60 * 1000;
+		const expires = new Date(Date.now() + 90 * ms_per_day).toUTCString();
+		document.cookie = `rdt_cid=${encodeURIComponent(cid)}; path=/; expires=${expires}; SameSite=Lax`;
+	})();
+
+	// Initialise the pixel and send a PageVisit.
+	rdt('init', 'a2_firy6qgt7tx8');
+	rdt('track', 'PageVisit');
+}
+
+/**
+ * Checks for user consent via TCF or USP APIs and loads the Pixel script if
+ * consent is present.
+ *
+ * Uses vendor ID 21 for Reddit (TCF) and global consent for USP API.
+ *
+ * @returns {void}
+ */
+function redditConsentHandler() {
+	const nrvVendorId = 21;
+
+	if (window.__tcfapi) {
+		window.__tcfapi('getValidTCData', 2, () => {
+			window.__tcfapi('getNonRegisteredVendorsConsents', 2, (nrvList) => {
+				if (nrvList && nrvList?.[nrvVendorId]?.consent) {
+					addRedditScript();
+				}
+			});
+		});
+	} else if (window.__uspapi) {
+		// US Yes/No check.
+		window.__uspapi('getUSPData', 1, () => {
+			window.__uspapi.a.push([
+				'hasConsentedToAll',
+				null,
+				(hasConsent) => {
+					if (hasConsent) addRedditScript();
+				}
+			]);
+		});
+	} else {
+		// On /subscribe pages we cannot check for consent, so instead
+		// check the localStorage for TCF cache.
+		try {
+			const tcfCache = localStorage?.getItem('mol.ads.cmp.tcf.cache');
+			const tcfCacheObj = tcfCache ? JSON.parse(tcfCache) : null;
+
+			if (tcfCacheObj?.getNonRegisteredVendorsConsents[nrvVendorId]?.consent) {
+				addRedditScript();
+			}
+		} catch (e) {
+			// Fail silently.
+		}
+	}
+}
+
+// If the adverts queue is available, push the Reddit consent handler to it.
+// Otherwise, set a timeout to call the handler after a second.
+if (window?.adverts?.queue?.push) {
+	window.adverts.queue.push(redditConsentHandler);
+} else {
+	// No ads on page, assume everything will have loaded by now.
+	setTimeout(redditConsentHandler, 1000);
+}
+;

@@ -1,0 +1,1 @@
+await import("https://widgets-p-eu.figstatic.com/static/f497fa589bea78770e2915d93fcf163e31791340/pdfjs/pdf_worker.js");

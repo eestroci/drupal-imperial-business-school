@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "Retina";
+    src: url("./Retina-Book.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Retina";
+    src: url("./Retina-Light.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Retina";
+    src: url("./Retina-Medium.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 500;
+}

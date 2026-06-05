@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkeuronews=globalThis.webpackChunkeuronews||[]).push([[1154],{61154:(a,e,n)=>{n.r(e),n.d(e,{default:()=>u}),window.dataLayer=window.dataLayer||[],window.gtag=function(){dataLayer.push(arguments)};const u=null}}]);

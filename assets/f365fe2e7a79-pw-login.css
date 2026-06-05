@@ -1,0 +1,7 @@
+#account-pw-container{margin:16px auto;text-align:center;font:400 20px/1 'Eugenio Sans Text','Helvetica Neue',Helvetica,sans-serif}
+#account-pw-container h2{font-weight:400}
+#account-pw-container a{color:#4b88ca;font-size:15px;text-transform:uppercase}
+#account-pw-container a:hover{cursor:pointer}
+#account-pw-container.pw-overlay{color:#fff;margin-bottom:32px}
+#account-pw-container.pw-overlay a{border:1px solid #fff;padding:8px;color:#fff;border-radius:4px;margin-left:8px}
+#account-pw-container.pw-overlay a:hover{cursor:pointer;color:inherit}

@@ -1,0 +1,163 @@
+ (function () {
+    tp = window["tp"] || [];
+
+
+    /* Checkout related */
+    /**
+     * Event properties
+     *
+     * chargeAmount - amount of purchase
+     * chargeCurrency
+     * uid
+     * email
+     * expires
+     * rid
+     * startedAt
+     * termConversionId
+     * termId
+     * promotionId
+     * token_list
+     * cookie_domain
+     * user_token
+     *
+     */
+    function onCheckoutComplete(data) {
+    }
+
+    function onCheckoutExternalEvent() {
+    }
+
+    function onCheckoutClose(event) {
+          //This is the GTexcel Integration. When user completes checkout, an img is injected to the DOM, whose src attribute will make an http request to GTexcel's backend with user info.
+    var userData = tp.pianoId.getUser();
+
+    var email = userData.email;
+    var firstName = userData.firstName;
+    var lastName = userData.family_name;
+
+    var url = `https://pubsrv.texterity.com/cgi-bin/pwf_eds.cgi?transaction_type=subscription&email_address=${email}&first_name=${firstName}&last_name=${lastName}&publisher=mitsloan&publication=mitsmr&user_action=sub`;
+    var img = document.createElement("img");
+
+        img.src = url;
+        img.width = 0;
+        img.height = 0;
+
+    var div = document.getElementsByTagName("div")[0];
+    div.appendChild(img);
+
+    }
+
+    function onCheckoutCancel() {
+    }
+
+    function onCheckoutError() {
+    }
+
+    function onCheckoutSubmitPayment() {
+    }
+
+    /* Meter callback */
+    function onMeterExpired() {
+
+    }
+
+    /* Meter callback */
+    function onMeterActive() {
+
+    }
+
+    /* Callback executed when a user must login */
+    function onLoginRequired() {
+        // this is a reference implementation only
+        // your own custom login/registration implementation would
+        // need to return the tinypass-compatible userRef inside the callback
+
+        // mysite.showLoginRegistration(function (tinypassUserRef)
+        // tp.push(["setUserRef", tinypassUserRef]); // tp.offer.startCheckout(params); // }
+        // this will prevent the tinypass error screen from displaying
+
+        return false;
+    }
+
+    /* Callback executed after a tinypassAccounts login */
+    function onLoginSuccess() {
+    }
+
+    /* Callback executed after an experience executed successfully */
+    function onExperienceExecute(event) {
+    }
+
+    /* Callback executed if experience execution has been failed */
+    function onExperienceExecutionFailed(event) {
+    }
+
+    /* Callback executed if external checkout has been completed successfully */
+    function onExternalCheckoutComplete(event) {
+        /* Default behavior is to refresh the page on successful checkout */
+        location.reload();
+    }
+  
+    function onCompleteUpgradePurchase(params) {
+      	setTimeout(function() {
+    		location.reload();
+		}, 5000);
+    }
+  
+  // Creates an event when a logged-out user clicks the "Subscribe" button
+  tp.push(["addHandler", "checkoutStateChange", function(event){
+    if (event.stateName == 'auth'){
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'subscription_auth'
+      });
+    }
+} ]);
+
+    //Domain Whitelisting Changes
+	tp.push(['setPianoIdUrl', 'https://id.sloanreview.mit.edu']);
+	tp.push(['setComposerHost','https://c2.sloanreview.mit.edu']); 
+	tp.push(['setEndpoint', 'https://vx.sloanreview.mit.edu']); 
+	tp.push(['setStaticDomain', 'https://cdn.sloanreview.mit.edu']);
+
+
+    tp.push(["setAid", '28WtJlio6C']);
+  	tp.push(["setCxenseSiteId", "1138607105391784675"])
+    //tp.push(["setEndpoint", 'https://buy.tinypass.com/api/v3']);
+    tp.push(["setUseTinypassAccounts", false ]);
+    tp.push(["setUsePianoIdUserProvider", true ]);
+
+    /* checkout related events */
+    tp.push(["addHandler", "checkoutComplete", onCheckoutComplete]);
+    tp.push(["addHandler", "checkoutClose", onCheckoutClose]);
+    tp.push(["addHandler", "checkoutCustomEvent", onCheckoutExternalEvent]);
+    tp.push(["addHandler", "checkoutCancel", onCheckoutCancel]);
+    tp.push(["addHandler", "checkoutError", onCheckoutError]);
+    tp.push(["addHandler", "checkoutSubmitPayment", onCheckoutSubmitPayment]);
+
+    /* user login events */
+    tp.push(["addHandler", "loginRequired", onLoginRequired]);
+    tp.push(["addHandler", "loginSuccess", onLoginSuccess]);
+
+    /* meter related */
+    tp.push(["addHandler", "meterExpired", onMeterExpired]);
+    tp.push(["addHandler", "meterActive", onMeterActive]);
+
+    tp.push(["addHandler", "experienceExecute", onExperienceExecute]);
+    tp.push(["addHandler", "experienceExecutionFailed", onExperienceExecutionFailed]);
+
+    /* external checkout related events */
+    tp.push(["addHandler", "externalCheckoutComplete", onExternalCheckoutComplete]);
+  
+    tp.push(["addHandler", "completeUpgradePurchase", onCompleteUpgradePurchase]);
+
+    tp.push(["init", function () {
+        tp.experience.init()
+    }]);
+})();
+
+
+    // do not change this section
+    // |BEGIN INCLUDE TINYPASS JS|
+    (function(src){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=src;var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})("//cdn.sloanreview.mit.edu/api/tinypass.min.js");
+    // |END   INCLUDE TINYPASS JS|
+

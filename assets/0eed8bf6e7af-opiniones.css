@@ -1,0 +1,43 @@
+.opiniones-smc {
+    max-width: 1080px;
+    margin: auto;
+}
+.opiniones-smc .testimonio-smc-body::after,
+.opiniones-smc .testimonio-smc-body::before { 
+    position: absolute;
+    background-size: 30px 30px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    content: "";
+}
+.opiniones-smc .testimonio-smc-body::before {
+  top: 25px;
+  background-image: url('../images/icon/quote-left.png');
+  left: -5px;
+}
+
+.opiniones-smc .testimonio-smc-body::after {
+  bottom: 25px;
+  right: 0;
+  background-image: url('../images/icon/quote-right.png');
+}
+.opiniones-smc .testimonio-smc-body {
+    padding: 50px;
+    text-align: left;
+    position: relative;    
+    color: var(--texto-secundario);
+    font-style: italic;
+}
+.opiniones-smc .testimonio-smc-pie {
+    font-weight: var(--unnamed-font-weight-bold);
+    padding-left: 50px;
+}
+
+.flex-control-nav.flex-control-paging {
+    display: none;
+}
+.flex-direction-nav a::before {
+    font-size: 30px;
+    color:   var(--color-principal);
+}

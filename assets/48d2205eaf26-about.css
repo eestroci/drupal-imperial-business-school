@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+.cada-w {
+  border: 2px solid var(--color-principal);
+  margin-bottom: 40px;
+  padding: 20px;
+}
+.subtitulo-con-icono {
+    display: flex;
+    flex-wrap: wrap;
+}
+.lista-nobullets li {
+  list-style: none;
+  margin: 0 !important;
+}
+.subtitulo-con-icono .titulo-texto-h5{
+  text-align: left;
+  width: 80%;
+}
+.svg.icono {
+    float: right;
+    width: 10%;
+    text-align: right;
+    font-size: var(--unnamed-font-size-32);
+    color: var(--color-principal);
+}
+.lista-nobullets li:nth-child(2n) div.una-w {
+  margin-left: 2%;
+}
+/*QUE ES*/
+.item-about {
+    /* padding: 20px 0 40px 0; */
+}
+.item-about:not(:last-child) {
+    /* border-bottom: 1px solid var(--gris-2); */
+}
+
+
+.que-es-smc.row .titulo-texto-h5, .metodo-smc.row .titulo-texto-h5, .gobernanza.row .titulo-texto-h5{
+  padding-right: 80px;
+}
+
+.dos-col-centrado {
+  text-align: center;
+  float: left;
+  padding: 0 5%;
+}
+
+
+/*EQUIPO*/
+.equipo {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  margin: 80px 0;
+}
+
+.view-id-fichas_personas li {
+    list-style: none;
+}
+.equipo>div {
+  flex: 1 0 100%;
+}
+
+.equipo-foto img {
+  height: 259px;
+  width: 259px;
+  border-radius: 259px;
+  margin-bottom: 25px;
+}
+
+.equipo-nombre {
+  /* min-height: 86px; */
+}
+
+.equipo-cv {
+  font-size:0.9em;
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-6b6b6b);
+  margin-bottom: 0;
+  margin-top: 45px;
+  position: relative;
+}
+
+.equipo-redes {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  text-align: center;
+}
+
+.equipo-twitter,
+.equipo-facebook,
+.equipo-linkedin,
+.equipo-email {
+  margin-right: 20px;
+}
+
+.equipo-redes a {
+  background-color: var(--color-principal);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: block;
+  text-align: center;
+}
+
+.equipo-redes a>svg {
+  color: var(--blanco);
+  vertical-align: middle;
+}
+
+/******** CONTENIDO SMC ****************/
+.about-producto .caja-gris {
+  width: 260px;
+  height: 260px;
+  display: flex;
+  padding: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.about-producto .caja-gris svg {
+  font-size: 7rem;
+}
+
+.about-producto .subtitulo-h3 a {
+  color: var(--texto-principal);
+}
+
+.about-producto .texto {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-300) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-40) var(--unnamed-font-family-roboto);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-6b6b6b);
+  text-align: left;
+  word-break: break-word;
+}
+
+.block-views-blocktipos-de-producto-block-2 .view-content .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.block-views-blocktipos-de-producto-block-2 .view-content .row>.col-12:nth-child(odd) {
+  padding-left: 0;
+}
+
+.block-views-blocktipos-de-producto-block-2 .view-content .row>.col-12:nth-child(even) {
+  padding-right: 0;
+}
+
+/************* BECAS **********************/
+/*.titular-izqda.no-margin div.block-field-blockblock-contentcabecerasfield-cabecera {
+  margin-left: 0;
+  margin-right: 0;
+}*/
+.view-becas .beca-item {
+  background: var(--blanco) 0% 0% no-repeat padding-box;
+  border: 1px solid var(--gris-1);
+  padding: 35px 25px;
+  margin: 25px 0;
+  height: 480px;
+}
+
+.view-becas .beca-title,
+.view-becas .beca-subtitle,
+.view-becas .beca-body {
+  text-align: center;
+}
+
+.view-becas .beca-title {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-32)/var(--unnamed-line-spacing-44) var(--unnamed-font-family-roboto);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--texto-principal);
+}
+
+.view-becas .beca-subtitulo {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-300) var(--unnamed-font-size-24)/var(--unnamed-line-spacing-40) var(--unnamed-font-family-roboto);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--texto-secundario);
+}
+
+.view-becas .beca-body {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-300) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-40) var(--unnamed-font-family-roboto);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-6b6b6b);
+  margin-top: 45px;
+  position: relative;
+}
+
+.view-becas .beca-body::before,
+.equipo-cv::before{
+  content: "";
+  position: absolute;
+  border-top: 2px solid var(--color-principal);
+  width: 50px;
+  left: 0;
+  top: -20px;
+}
+
+.view-becas .beca-readmore {
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .view-becas .beca-item {
+    height: 580px;
+  }
+}
+
+@media (max-width: 767px) {
+  .block-views-blocktipos-de-producto-block-2 .view-content .row>.col-12 {
+    padding: 0;
+  }
+  .view-becas .beca-item {
+    height: auto;
+  }
+
+}
+
+@media (max-width: 450px) {
+  .view-becas .beca-body {
+    font-size: var(--unnamed-font-size-18);
+  }
+}

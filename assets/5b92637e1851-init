@@ -1,0 +1,45 @@
+(function () {var c = window.__iat_config = window.__iat_config || window.__tgconf || {};
+c.ts = 1778848478768;
+c.acId = 427;
+c.appId = 1899;
+c.publicId = 'OCLM2TSS';
+c.sellerId = 'CRGGBRHI';
+c.domain = 'irishtimes.com';
+c.rootPath = 'https://services.insurads.com';
+c.messagingEnabled = 1;
+c.messagingPath = 'https://web-messaging.insurads.com/rt-pub/node';
+c.sessionId = 'C7A18774E1F8FFA7';
+c.sectionId = 2272;
+c.g_country = 'GB';
+c.g_region = 'SLG';
+c.g_city = 'Slough';
+c.d_type = 'Personal computer';
+c.d_browser = 'Chrome';
+c.d_os = 'Others';
+c.znl = {"763798":{"tu":1,"conf":{"bottomHeight":0,"showDelay":0,"showCloseDelay":0,"sizes":[{"width":320,"height":50}]},"type":"bottom","dc":"mobile"},"763797":{"tu":1,"conf":{"bottomHeight":0,"showDelay":0,"showCloseDelay":0,"sizes":[{"width":728,"height":90}]},"type":"bottom","dc":"desktop,tablet"}};
+c.dads = 0;
+c.ivm = 1;
+c.integrations = {"dfp":{"networkCode":"2695176"}};
+c.funnel = {};
+c.cookies = 1;
+c.allowLockedId = 1;
+c.controlHash = 'EIJMJJEOOM';
+c.pwt = { noCmpProfile: 35 };
+
+
+var loadScripts = 1;
+if (loadScripts) {
+var s0 = document.createElement('script');
+s0.async = true;
+s0.src = 'https://cdn.insurads.com/iat-realtime-10.0.0.js';
+document.getElementsByTagName('HEAD')[0].appendChild(s0);
+
+var s1 = document.createElement('script');
+s1.async = true;
+s1.src = 'https://cdn.insurads.com/iat-client-1.17.25.js';
+document.getElementsByTagName('HEAD')[0].appendChild(s1);
+}
+
+
+window.__iat_initCb ? window.__iat_initCb() : (window.__tginitcb && window.__tginitcb());
+})();

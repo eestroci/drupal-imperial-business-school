@@ -1,0 +1,4 @@
+self.onmessage = function(e) {
+              if (e.data.timeout === 0) { self.postMessage({ eventId: e.data.eventId }); }
+              else { setTimeout(function() { self.postMessage({ eventId: e.data.eventId }); }, e.data.timeout); }
+            }

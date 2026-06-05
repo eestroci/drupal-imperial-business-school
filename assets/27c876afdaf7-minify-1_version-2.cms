@@ -1,0 +1,2 @@
+var randomNumber=Math.random()*100;randomNumber=randomNumber.toFixed(1);var validPath=window&&(window.location.pathname.includes("/games")||window.location.pathname.includes("aqi-level-air-quality-index-today"));if(randomNumber<=30||validPath){(function(j,d,b,g,f,e,h){j[b]=j[b]||function(){(j[b].q=j[b].q||[]).push(arguments)};e=d.createElement(g);e.async=1;e.src="https://www.clarity.ms/tag/"+f;h=d.getElementsByTagName(g)[0];h.parentNode.insertBefore(e,h)})(window,document,"clarity","script","omgopi914d")
+};

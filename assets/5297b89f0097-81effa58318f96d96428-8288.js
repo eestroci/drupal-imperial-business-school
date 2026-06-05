@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkeuronews=globalThis.webpackChunkeuronews||[]).push([[8288],{68288:(s,e,i)=>{i.r(e),i.d(e,{default:()=>a});var n=i(32374);class a extends n.A{async $init(){this.importNonliSdk()}async importNonliSdk(){await i.e(4720).then(i.bind(i,34720))}}}}]);

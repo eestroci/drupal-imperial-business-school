@@ -1,0 +1,22 @@
+/*
+Make sure this is not cached
+*/
+
+.cookiebot-toggle-input + .cookiebot-toggle-label {border-radius: 20px !important;}
+#CybotCookiebotDialog {border-radius: 10px !important;}
+
+
+.cookieconsent-optout-marketing {position:relative;width:100%;height:100%;background:#ddd;padding:15px;text-align:center;background-image:none !important;}
+#pq-videos .cookieconsent-optout-marketing {z-index:5;height:280px;}
+
+.post .entry-content .embed-responsive .cookieconsent-optout-marketing {z-index:5;height:400px;}
+
+.pq-multimedia #main-hub-video .cookieconsent-optout-marketing {z-index:5;height:400px;}
+
+.pq-multimedia #first-video .cookieconsent-optout-marketing {z-index:5;height:420px;}
+
+.pq-multimedia .series-videos .cookieconsent-optout-marketing {z-index:5;height:95px;padding:5px;}
+
+@media (min-width:991px) {
+	.mobile-interstitial-ad  div .cookieconsent-optout-marketing {display:none !important;}
+}

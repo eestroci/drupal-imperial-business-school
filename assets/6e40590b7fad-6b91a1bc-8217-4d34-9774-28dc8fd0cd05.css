@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('//cdn.taboola.com/static/impl/eot/HelveticaNeue-Roman.eot');
+    src: local('Helvetica 55 Roman'), local('HelveticaNeue-Roman'),
+        url('//cdn.taboola.com/static/impl/eot/HelveticaNeue-Roman.eot?#iefix') format('embedded-opentype'),
+        url('//cdn.taboola.com/static/impl/woff2/HelveticaNeue-Roman.woff2') format('woff2'),
+        url('//cdn.taboola.com/static/impl/woff/HelveticaNeue-Roman.woff') format('woff'),
+        url('//cdn.taboola.com/static/impl/ttf/HelveticaNeue-Roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('//cdn.taboola.com/static/impl/eot/HelveticaNeue-Bold.eot');
+    src: local('Helvetica Neue Bold'), local('HelveticaNeue-Bold'),
+        url('//cdn.taboola.com/static/impl/eot/HelveticaNeue-Bold.eot?#iefix') format('embedded-opentype'),
+        url('//cdn.taboola.com/static/impl/woff2/HelveticaNeue-Bold.woff2') format('woff2'),
+        url('//cdn.taboola.com/static/impl/woff/HelveticaNeue-Bold.woff') format('woff'),
+        url('//cdn.taboola.com/static/impl/ttf/HelveticaNeue-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

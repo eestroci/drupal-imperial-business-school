@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkeuronews=globalThis.webpackChunkeuronews||[]).push([[4746],{24746:(e,s,i)=>{i.r(s),i.d(s,{default:()=>a});var l=i(32374);class a extends l.A{async $init(){this.logger.log("AdShield adblock recovery initialized")}}}}]);

@@ -1,0 +1,19 @@
+body {font-family:Arial, Helvetica, sans-serif;}
+
+#mba-watch-top,
+#header, 
+#leaderboard, 
+#site-top,
+.breadcrumb,
+.entry-social-circle,
+.sidebar, 
+#partners, 
+#comments,
+#site-bottom, 
+#highlighted, 
+#disqus_thread .generic-ad__wrapper, 
+#disqus_thread,
+.keep-reading-btns
+{display:none;}
+#main .col-md-9 {width:75%;}
+

@@ -1,0 +1,52 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+img {
+    width: 100%;
+    height: 98%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.player-content {
+    width: 100%;
+    height: 100%;
+}
+
+#audioPlayerContainer {
+    top: -30px;
+    position: relative;
+}
+
+#AndroidPlayerContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#HlsVideoTag {
+    width: 100%;
+    height: 100%;
+}
+
+.theoPlayer {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.player-content iframe {
+    width: 100%;
+    height: 100%;
+}

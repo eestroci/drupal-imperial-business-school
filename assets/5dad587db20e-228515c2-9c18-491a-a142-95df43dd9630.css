@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'Yahoo Sans';
+    src: local('Yahoo Sans Black'), local('YahooSans-Black'),
+        url('//cdn.taboola.com/static/96/96222d7a-b7a8-4ca5-bfe7-008ade6e5ae3.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yahoo Sans';
+    src: local('Yahoo Sans ExtraBold'), local('YahooSans-ExtraBold'),
+        url('//cdn.taboola.com/static/4d/4d1a609b-f3ba-4e89-a524-446fccbad58f.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yahoo Sans';
+    src: local('Yahoo Sans Medium'), local('YahooSans-Medium'),
+        url('//cdn.taboola.com/static/d5/d583f597-33a2-439d-b6e0-84e966517fa4.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yahoo Sans';
+    src: local('Yahoo Sans ExtraLight'), local('YahooSans-ExtraLight'),
+        url('//cdn.taboola.com/static/34/34969ce5-5f64-4b1d-ba6c-b8c39a851a2d.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yahoo Sans';
+    src: local('Yahoo Sans Bold'), local('YahooSans-Bold'),
+        url('//cdn.taboola.com/static/4c/4c23fcb6-583c-4012-b489-ebdd8272b860.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yahoo Sans';
+    src: local('Yahoo Sans Italic'), local('YahooSans-Italic'),
+        url('//cdn.taboola.com/static/f3/f3eb240e-25c3-4c19-84c7-b5258f745f1d.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yahoo Sans';
+    src: local('Yahoo Sans Light'), local('YahooSans-Light'),
+        url('//cdn.taboola.com/static/db/db106e6c-aad7-47db-8923-d7b23265fc08.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yahoo Sans';
+    src: local('Yahoo Sans Regular'), local('YahooSans-Regular'),
+        url('//cdn.taboola.com/static/ff/ffc284e4-a12f-4994-ae77-dfe2aef8a671.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yahoo Sans';
+    src: local('Yahoo Sans Semibold'), local('YahooSans-Semibold'),
+        url('//cdn.taboola.com/static/1f/1ff78248-2d44-4a3f-ae0c-cbf675bd2170.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
